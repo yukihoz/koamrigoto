@@ -2,6 +2,7 @@ from st_aggrid import AgGrid
 import pandas as pd
 import streamlit as st
 
+
 import MeCab
 mecab = MeCab.Tagger()
 import matplotlib.pyplot as plt
@@ -146,6 +147,11 @@ st.markdown('補足：更新するたびに表示位置などはビミョーに�
 #    #集計文字数表示
 #    st.metric(label="発言文字数", value=len(text))
 
+option_selected_l = st.text_input('キーワード入力してね。', '')
+
+selected_l = logs_contents_temp_show[(logs_contents_temp_show['内容'].str.contains(option_selected_l))
+
+
     #table作成
 with st.expander("■ 解析対象の文字列", False):
     #st.markdown('　#### :open_book: 解析対象の文字列')
@@ -227,3 +233,4 @@ with st.expander("■ 解析対象の文字列", False):
 #st.markdown('分析の元になっているデータは、[中央区議会 Webサイト](https://www.kugikai.city.chuo.lg.jp/index.html)の「会議録検索」からHTMLファイルをごっそりダウンロードして、その上であれこれ苦心して加工して作成しました。注意して作業はしたつもりですが、一部のデータが欠損等している可能性もありますのでご承知おきください。もし不備等ありましたら[ほづみゆうき](https://twitter.com/ninofku)まで声掛けいただけるとありがたいです。')
 st.header(':paperclip: 作成責任者')
 st.markdown('このサイトは、みらい子育て全国ネットワーク(https://miraco-net.com/)が作成しました。')
+
