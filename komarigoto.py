@@ -149,7 +149,7 @@ st.markdown('補足：更新するたびに表示位置などはビミョーに�
 
 option_selected_l = st.text_input('キーワード入力してね。', '')
 
-selected_l = logs_contents_temp_show(logs_contents_temp_show['内容'].str.contains(option_selected_l))
+logs_contents_temp_show = logs_contents_temp_show(logs_contents_temp_show['内容'].str.contains(option_selected_l))
 
     #table作成
 with st.expander("■ 解析対象の文字列", False):
