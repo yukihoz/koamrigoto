@@ -92,7 +92,6 @@ if shibori:
 
 logs_contents_temp_show = logs_contents_temp[["都道府県","自治体","親の年代","性別","子どもの数","子ども世代","意見","備考"]]
 #logs_contents_temp_moji = logs_contents_temp.groupby('年度').sum()# 年度ごとの文字数
-
 ##文字カウント
 #logs_contents_temp_moji = logs_contents_temp_moji['文字数']
 
@@ -149,84 +148,84 @@ st.markdown('補足：更新するたびに表示位置などはビミョーに�
 
 option_selected_l = st.text_input('キーワード入力してね。', '')
 
-logs_contents_temp_show = logs_contents_temp_show(logs_contents_temp_show['内容'].str.contains(option_selected_l))
+logs_contents_temp_show = logs_contents_temp_show[(logs_contents_temp_show['意見'].str.contains(option_selected_l))]
 
     #table作成
-with st.expander("■ 解析対象の文字列", False):
+#with st.expander("■ 解析対象の文字列", False):
     #st.markdown('　#### :open_book: 解析対象の文字列')
-    st.markdown('　上記の解析結果の対象となった文字列です。もうちょい細かく見たいこともあるかと思い表示させてみました（改行がうまくできてなくてすいません…）')
-    grid_options = {
-        "columnDefs":[
-        {
-            "headerName":"都道府県",
-            "field":"都道府県",
-            "suppressSizeToFit":True,
-            "autoHeight":True,
-            "maxWidth":100,
-        },
-        {
-            "headerName":"自治体",
-            "field":"自治体",
-            "suppressSizeToFit":True,
-            "autoHeight":True,
+st.markdown('　上記の解析結果の対象となった文字列です。もうちょい細かく見たいこともあるかと思い表示させてみました（改行がうまくできてなくてすいません…）')
+grid_options = {
+    "columnDefs":[
+    {
+        "headerName":"都道府県",
+        "field":"都道府県",
+        "suppressSizeToFit":True,
+        "autoHeight":True,
+        "maxWidth":100,
+    },
+    {
+        "headerName":"自治体",
+        "field":"自治体",
+        "suppressSizeToFit":True,
+        "autoHeight":True,
 
-        },
-        {
-            "headerName":"親の年代",
-            "field":"親の年代",
-            "suppressSizeToFit":True,
-            "autoHeight":True,
+    },
+    {
+        "headerName":"親の年代",
+        "field":"親の年代",
+        "suppressSizeToFit":True,
+        "autoHeight":True,
 
-        },
-        {
-            "headerName":"性別",
-            "field":"性別",
-            "suppressSizeToFit":True,
-            "autoHeight":True,
+    },
+    {
+        "headerName":"性別",
+        "field":"性別",
+        "suppressSizeToFit":True,
+        "autoHeight":True,
 
-        },
-        {
-            "headerName":"子どもの数",
-            "field":"子どもの数",
-            "suppressSizeToFit":True,
-            "autoHeight":True,
-        },
-        {
-            "headerName":"子ども世代",
-            "field":"子ども世代",
-            "suppressSizeToFit":True,
-            "autoHeight":True,
+    },
+    {
+        "headerName":"子どもの数",
+        "field":"子どもの数",
+        "suppressSizeToFit":True,
+        "autoHeight":True,
+    },
+    {
+        "headerName":"子ども世代",
+        "field":"子ども世代",
+        "suppressSizeToFit":True,
+        "autoHeight":True,
 
-        },
-        {
-            "headerName":"性別",
-            "field":"性別",
-            "suppressSizeToFit":True,
-            "autoHeight":True,
+    },
+    {
+        "headerName":"性別",
+        "field":"性別",
+        "suppressSizeToFit":True,
+        "autoHeight":True,
 
-        },
-        {
-            "headerName":"意見",
-            "field":"意見",
-            "wrapText":True,
-            "autoHeight":True,
-            "suppressSizeToFit":True,
-            "maxWidth":400,
-            "minWidth":400,
-        },
-        {
-            "headerName":"備考",
-            "field":"備考",
-            "wrapText":True,
-            "autoHeight":True,
-            "suppressSizeToFit":True,
-            "maxWidth":200,
-            "minWidth":200,
+    },
+    {
+        "headerName":"意見",
+        "field":"意見",
+        "wrapText":True,
+        "autoHeight":True,
+        "suppressSizeToFit":True,
+        "maxWidth":400,
+        "minWidth":400,
+    },
+    {
+        "headerName":"備考",
+        "field":"備考",
+        "wrapText":True,
+        "autoHeight":True,
+        "suppressSizeToFit":True,
+        "maxWidth":200,
+        "minWidth":200,
 
-        },
-        ],
-    }
-    AgGrid(logs_contents_temp_show, grid_options)
+    },
+    ],
+}
+AgGrid(logs_contents_temp_show, grid_options)
 #    AgGrid(logs_contents_temp_show)
 #st.header(':paperclip: 情報参照元')
 #st.markdown('分析の元になっているデータは、[中央区議会 Webサイト](https://www.kugikai.city.chuo.lg.jp/index.html)の「会議録検索」からHTMLファイルをごっそりダウンロードして、その上であれこれ苦心して加工して作成しました。注意して作業はしたつもりですが、一部のデータが欠損等している可能性もありますのでご承知おきください。もし不備等ありましたら[ほづみゆうき](https://twitter.com/ninofku)まで声掛けいただけるとありがたいです。')
