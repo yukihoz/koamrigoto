@@ -24,7 +24,7 @@ st.markdown('　子育ての実状に関するアンケートを実施して、�
 #st.markdown('　python + streamlitで作ってます。超初心者の習作なもので色々ツッコミどころはあるかと思います。こうすればもっと良いよ！とか教えてもらえると嬉しいです。一緒にやろうよ！という人がいてくれるともっと嬉しいです。コメント、ツッコミはお気軽に。')
 #st.markdown('**作った人：[ほづみゆうき](https://twitter.com/ninofku)**')
 
-logs = pd.read_csv('./komarigoto3.csv', encoding='UTF-8')#dataframeとしてcsvを読み込み
+logs = pd.read_csv('./komarigoto.csv', encoding='UTF-8')#dataframeとしてcsvを読み込み
 pref_list = pd.read_csv('./pref.csv', encoding='UTF-8')
 #pref_list = pref_list_temp['都道府県']
 
