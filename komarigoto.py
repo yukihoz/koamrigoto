@@ -21,7 +21,7 @@ st.image(bannar)
 #st.title(':face_with_monocle:  政治家に届けたい！子育ての実情アンケートの結果（仮）')
 st.markdown('みらい子育て全国ネットワークでは、参院選に先立って2022年4月から6月にかけて「政治家に届けたい！子育ての実情アンケート」としてインターネット経由で妊娠中〜就学中のお子さんを子育て中の方々の声を集めてきました（のべ3,371件）。')
 st.markdown('このwebサイトではアンケートの回答結果をテキスト解析した結果を見ることができる他、寄せられた回答結果の中身を読むことができます。また、都道府県や年代などで絞り込みを行うこともできます。')
-st.markdown('子育て世代がどのようなことに困っているのか、どういったことを解決してほしいとのかについて考えるきっかけとしていただければ幸いです。')
+st.markdown('参院選の候補者の皆様におかれましては、子育て世代がどのようなことに困っているのか、どういったことを解決してほしいとのかについて考えるきっかけとしていただければ幸いです。')
 #st.markdown('**作った人：[ほづみゆうき](https://twitter.com/ninofku)**')
 
 logs = pd.read_csv('./komarigoto.csv', encoding='UTF-8')#dataframeとしてcsvを読み込み
@@ -224,4 +224,10 @@ grid_options = {
 AgGrid(logs_contents_temp_show, grid_options)
 
 st.header(':paperclip: 作成責任者')
-st.markdown('みらい子育て全国ネットワーク：https://miraco-net.com/')
+st.markdown('みらい子育て全国ネットワーク（#GoTo候補者2022）：https://miraco-net.com/project/seisaku/27910/')
+
+st.markdown('【SNSアカウント一覧】')
+st.markdown('・Webサイト: https://miraco-net.com/')
+st.markdown('・Facebook https://www.facebook.com/hoikuenhairitai')
+st.markdown('・Twitter https://twitter.com/hoikuenhairitai')
+st.markdown('・Instagram https://www.instagram.com/miraco_net/')
